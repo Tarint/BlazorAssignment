@@ -5,8 +5,34 @@
 
 <h1>New User</h1>
 
-<p role="status">Current count: @currentCount</p>
+@if (_displayForm)
+{
+    <EditForm Model="user" OnValidSubmit="ValidSubmissionAsync">
+        <div>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+        </div>
+        <DataAnnotationsValidator />
 
+        <InputText @bind-Value="user.UserName" placeholder="User Name" />
+        <ValidationMessage For="@(() => user.UserName)" />
 
+        <InputText @bind-Value="user.FirstName" placeholder="First Name"/>
+        <ValidationMessage For="@(() => user.FirstName)" />
+
+        <InputText @bind-Value="user.LastName" placeholder="Last Name"/>
+        <ValidationMessage For="@(() => user.LastName)" />
+
+        <InputNumber @bind-Value="user.Age" placeholder="Age"/>
+        <ValidationMessage For="@(() => user.Age)" />
+
+        <InputDate @bind-Value="user.BirthDay" />
+
+        <InputText @bind-Value="user.Email" placeholder="Email"/>
+
+        <button type="submit">Submit</button>
+    </EditForm>
+}
+else
+{
+    <p>Thank you @_nameToDisplay. You sucsessfully submited the form.</p>
+}
