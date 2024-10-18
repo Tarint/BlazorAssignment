@@ -13,21 +13,33 @@
         </div>
         <DataAnnotationsValidator />
 
+        <label>User Name <br />
         <InputText @bind-Value="user.UserName" placeholder="User Name" />
         <ValidationMessage For="@(() => user.UserName)" />
+        </label><br /><br />
 
+        <label>First Name<br />
         <InputText @bind-Value="user.FirstName" placeholder="First Name"/>
         <ValidationMessage For="@(() => user.FirstName)" />
+        </label>
 
+        <label>Last Name<br />
         <InputText @bind-Value="user.LastName" placeholder="Last Name"/>
         <ValidationMessage For="@(() => user.LastName)" />
+        </label><br /><br />
 
+        <label> Age <br />
         <InputNumber @bind-Value="user.Age" placeholder="Age"/>
         <ValidationMessage For="@(() => user.Age)" />
+        </label>
 
+        <label>Birthday<br />
         <InputDate @bind-Value="user.BirthDay" />
+        </label><br /><br />
 
+        <label>Email<br />
         <InputText @bind-Value="user.Email" placeholder="Email"/>
+        </label><br /><br />
 
         <button type="submit">Submit</button>
     </EditForm>

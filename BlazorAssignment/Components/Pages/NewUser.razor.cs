@@ -10,7 +10,6 @@ namespace BlazorAssignment.Components.Pages
 
         private string _nameToDisplay;
         private bool _displayForm = true;
-/*testing comment*/
         private async Task ValidSubmissionAsync()
         {
             _displayForm = false;
@@ -18,15 +17,10 @@ namespace BlazorAssignment.Components.Pages
             Console.WriteLine(DateTime.Now);
             await Task.Delay(10000);
             Console.WriteLine(DateTime.Now);
-/*another comment*/
 
             _nameToDisplay = user.UserName ?? user.FirstName;                        
         }
     }
-
-
-
-
     public class User
     {
         public User()
