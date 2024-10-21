@@ -27,6 +27,7 @@ namespace BlazorAssignment.Components.Pages
         {
             BirthDay = new DateTime(1980, 01, 01);
         }
+        public string UserName { get; set; }
 
         [Required(ErrorMessage = "Your first name is required")]
         [StringLength(20, ErrorMessage = "To many characters")]
@@ -36,13 +37,11 @@ namespace BlazorAssignment.Components.Pages
         [StringLength(20, ErrorMessage = "To many characters")]
         public string LastName { get; set; }
 
-        public string UserName { get; set; }
 
         [Required(ErrorMessage = "Your age is required")]
         [Range(18, 100, ErrorMessage = "Age must be betwen 18 and 100")]
         public int Age { get; set; }
 
-        [Required(ErrorMessage = "Your birthday is required")]
         public DateTime BirthDay { get; set; }
 
         public string Email { get; set; }

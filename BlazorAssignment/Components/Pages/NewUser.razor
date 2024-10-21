@@ -18,18 +18,18 @@
         <ValidationMessage For="@(() => user.UserName)" />
         </label><br /><br />
 
-        <label>First Name<br />
-        <InputText @bind-Value="user.FirstName" placeholder="First Name"/>
+        <label>Required: First Name<br />
+        <InputText @bind-Value="user.FirstName" placeholder="First Name" />
         <ValidationMessage For="@(() => user.FirstName)" />
         </label>
 
-        <label>Last Name<br />
-        <InputText @bind-Value="user.LastName" placeholder="Last Name"/>
+        <label>Required: Last Name<br />
+        <InputText @bind-Value="user.LastName" placeholder="Last Name" />
         <ValidationMessage For="@(() => user.LastName)" />
         </label><br /><br />
 
-        <label> Age <br />
-        <InputNumber @bind-Value="user.Age" placeholder="Age"/>
+        <label>Required: Age <br />
+        <InputNumber @bind-Value="user.Age" placeholder="Age" />
         <ValidationMessage For="@(() => user.Age)" />
         </label>
 
