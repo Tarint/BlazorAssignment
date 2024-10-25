@@ -18,27 +18,47 @@
         <ValidationMessage For="@(() => user.UserName)" />
         </label><br /><br />
 
-        <label>First Name<br />
-        <InputText @bind-Value="user.FirstName" placeholder="First Name"/>
-        <ValidationMessage For="@(() => user.FirstName)" />
-        </label>
-
-        <label>Last Name<br />
-        <InputText @bind-Value="user.LastName" placeholder="Last Name"/>
-        <ValidationMessage For="@(() => user.LastName)" />
-        </label><br /><br />
-
-        <label> Age <br />
-        <InputNumber @bind-Value="user.Age" placeholder="Age"/>
-        <ValidationMessage For="@(() => user.Age)" />
-        </label>
-
-        <label>Birthday<br />
-        <InputDate @bind-Value="user.BirthDay" />
+        <label>Name<br />
+        <InputText @bind-Value="user.Name" placeholder="Full Name"/>
+        <ValidationMessage For="@(() => user.Name)" />
         </label><br /><br />
 
         <label>Email<br />
         <InputText @bind-Value="user.Email" placeholder="Email"/>
+        </label>
+
+        <label>Phone Number <br />
+        <InputNumber @bind-Value="user.PhoneNumber"></InputNumber>
+        </label><br /><br />
+
+
+        <label>Home Adress</label><br />
+
+        <label>Street<br />
+        <InputText @bind-Value="user.Street" placeholder="Street Name" />
+        </label>
+
+        <label>City<br />
+        <InputText @bind-Value="user.City" placeholder="City" />
+        </label>
+
+        <label>Zipcode <br />
+        <InputNumber @bind-Value="user.Zipcode"></InputNumber>
+        </label><br /><br />
+
+
+        <label>Company</label><br />
+
+        <label>Company Name<br />
+        <InputText @bind-Value="user.CompanyName" placeholder="Company Name" />
+        </label>
+
+        <label>Company Email<br />
+        <InputText @bind-Value="user.CompanyEmail" placeholder="Company Emai" />
+        </label>
+
+        <label>Catchphrase<br />
+        <InputText @bind-Value="user.CompanyCatchphrase" placeholder="Catchphrase" />
         </label><br /><br />
 
         <button type="submit">Submit</button>
@@ -46,5 +66,5 @@
 }
 else
 {
-    <p>Thank you @_nameToDisplay. You sucsessfully submited the form.</p>
+    <p>Thank you @_nameToDisplay. Your information has been sucsessfully saves.</p>
 }
