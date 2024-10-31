@@ -5,7 +5,7 @@ namespace BlazorAssignment.Components.Pages
 {
     public partial class NewUser
     {
-        private UserData user = new UserData();
+        private UserData user = new UserData(0, null, null, null, 0, null, null, 0, null, null);
 
 
         private string _nameToDisplay;
@@ -13,10 +13,6 @@ namespace BlazorAssignment.Components.Pages
         private async Task ValidSubmissionAsync()
         {
             _displayForm = false;
-
-            Console.WriteLine(DateTime.Now);
-            await Task.Delay(5000);
-            Console.WriteLine(DateTime.Now);
 
             _nameToDisplay = user.UserName ?? user.Name;                        
         }

@@ -1,4 +1,8 @@
 ﻿using BlazorAssignment.Components.Pages;
+using System.IO;
+using System.Reflection.Emit;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BlazorAssignment.Model
 {
@@ -25,31 +29,6 @@ namespace BlazorAssignment.Model
             }
         }
 
-        private readonly int[] _id = new[]
-            { 7, 2, 9, 10, 3, 5, 1, 8, 4, 6 };
-
-        private readonly string[] _name = new[] 
-            { "Max Verstappen", "Lewis Hamilton", "Markus Pärson", "Zara Larson", "Sanna Marin", "Johan Lundgren", "Kira Carsen", "Lana Beniko", "Alexander Bard", "Thomas Lövgren" };
-        private readonly string[] _userName = new[]
-            { "RandomUser1", "RandomUser2", "RandomUser3", "RandomUser19", "RandomUser9", "RandomUser5", "RandomUser16", "RandomUser7", "RandomUser12", "RandomUser20" };
-        private readonly string[] _email = new[]
-            { "RandomUser1", "RandomUser2", "RandomUser3", "RandomUser19", "RandomUser9", "RandomUser5", "RandomUser16", "RandomUser7", "RandomUser12", "RandomUser20" };
-        private readonly long[] _phoneNumber = new[]
-            { 1763078985, 5569132080, 7636758362, 9608411182, 7053629083, 7546463303, 6036172063, 6394588951, 8133057589, 8979385949 };
-
-        private readonly string[] _street = new[]
-            { "Vasagatan", "Kungsgatan", "Stationsgatan", "Stefansgatan", "Markgatan", "Apelvägen", "Marieholmsvägen", "Friisgatan" };
-        private readonly string[] _city = new[]
-            { "Stockholm", "Malmö", "Uppsala", "Örebro" };
-        private readonly int[] _zipCode = new[]
-            { 11522, 11140, 21143, 70374, 74636 };
-
-
-        private readonly string[] _companyName = new[]
-            { "Sten", "RandomUser2", "RandomUser3", "RandomUser19", "RandomUser9", "RandomUser5", "RandomUser16", "RandomUser7", "RandomUser12", "RandomUser20" };
-        private readonly string[] _companyCatchphrase = new[]
-            { "Dont be Evil", "Jobba Hårt", "Familjen Betyder Allt", "Vi har Låga Priser" };
-
         public UserDataAccess()
         {
             
@@ -57,23 +36,21 @@ namespace BlazorAssignment.Model
 
         private List<UserData> GetUserDatasList()
         {
-            return Enumerable.Range(0, 10).Select(index => new UserData
+            List<UserData> listOfUsers = new List<UserData>
             {
-                ID = _id[Random.Shared.Next(_id.Length)],
+                new UserData(2, "Max Verstappen", "IamNumber1", "max.verstappen@gmail.com", 1763078985, "Vasagatan", "Stockholm", 11522, "Google", "Dont be Evil"),
+                new UserData(1, "Lewis Hamilton", "IamSpeed", "lewis.hamilton@gmail.com", 5569132080, "Kungsgatan", "Uppsala", 11140, "Apple", "Think Diffirent"),
+                new UserData(8, "Markus Pärson", "BlockMan", "markus.person@gmail.com", 7636758362, "Stationsgatan", "Malmö", 21143, "Mojang", "Endless possibilities"),
+                new UserData(4, "Zara Larsson", "Zara", "zara.larsson@gmail.com", 9608411182, "Stefansgatan", "Stockholm", 70374, "Microsoft", "Embrace, extend, and extinguish"),
+                new UserData(3, "Sanna Marin", "FinnishLeader", "sanna.marin@gmail.com", 7053629083, "Markgatan", "Borås", 74636, "Nvidia", "Graphics Reinvented"),
+                new UserData(10, "Johan Lundgren", "GhostMariner", "johan.lundgren@gmail.com", 7546463303, "Apelvägen", "Uppsala", 17930, "Amazon", "From A to Z"),
+                new UserData(6, "Kira Carsen", "JediNr1", "kira.carsen@gmail.com", 6036172063, "Friisgatan", "Stockholm", 60374, "ASUS", "In Search of Incredible"),
+                new UserData(7, "Lana Beniko", "Nr1Sith", "lana.beniko@gmail.com", 6036172083, "Friisgatan", "Stockholm", 60374, "ASUS", "In Search of Incredible"),
+                new UserData(5, "Alexander Bard", "Charisma100", "alexander.bard@gmail.com", 8133057589, "Marieholmsvägen", "Borås", 52907, "Honda", "Technology you can enjoy"),
+                new UserData(9, "Thomas Lövgren", "Canadianian", "thomas.lovgren@gmail.com", 8979385949, "Stationsvägen", "Uppsala", 11397, "Tropicana", "Tropicana. Straight from the Fruit")
+            };
 
-                Name = _name[Random.Shared.Next(_name.Length)],
-                UserName = _userName[Random.Shared.Next(_userName.Length)],
-                Email = _email[Random.Shared.Next(_email.Length)],
-                PhoneNumber = _phoneNumber[Random.Shared.Next(_phoneNumber.Length)],
-
-                Street = _street[Random.Shared.Next(_street.Length)],
-                City = _email[Random.Shared.Next(_email.Length)],
-                Zipcode = _zipCode[Random.Shared.Next(_zipCode.Length)],
-
-                CompanyName = _email[Random.Shared.Next(_email.Length)],
-                CompanyCatchphrase = _email[Random.Shared.Next(_email.Length)],
-
-            }).ToList();
+            return listOfUsers;
         }
     }
 }

@@ -11,11 +11,28 @@
 }
 else
 {
-    <button @onclick="DisplayAllUsers">Show All</button>
-    <button @onclick="DisplaySomeUsers">Show Some</button>
-
-    <button @onclick="OrderByName">Filter By Name</button>
-    <button @onclick="OrderByID">Filter By ID</button>
+    if (changeButton)
+    {
+        <button @onclick="DisplayAllUsers">Show All</button>
+        
+    }
+    else if (!changeButton)
+    {
+        <button @onclick="DisplaySomeUsers">Show Some</button>
+        
+    }
+    <br />
+    <br />
+    if (!longShort)
+    {
+        <button @onclick="OrderByNameLongList">Sort long list By Name</button>
+        <button @onclick="OrderByIDLongList">Sort long list By ID</button>
+    }
+    else if (longShort)
+    {
+        <button @onclick="OrderByNameShortList">Sort short list By Name</button>
+        <button @onclick="OrderByIDShortList">Sort short list By ID</button>
+    }
 
     <table class="table">
         <thead>

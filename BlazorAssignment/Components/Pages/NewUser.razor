@@ -12,13 +12,14 @@
 
         </div>
         <DataAnnotationsValidator />
+        <p>* is Required</p>
 
         <label>User Name <br />
         <InputText @bind-Value="user.UserName" placeholder="User Name" />
         <ValidationMessage For="@(() => user.UserName)" />
         </label><br /><br />
 
-        <label>Name<br />
+        <label>*Name<br />
         <InputText @bind-Value="user.Name" placeholder="Full Name"/>
         <ValidationMessage For="@(() => user.Name)" />
         </label><br /><br />
@@ -58,6 +59,7 @@
         </label><br /><br />
 
         <button type="submit">Submit</button>
+        <br /><br />
     </EditForm>
 }
 else

@@ -1,4 +1,5 @@
 ﻿using BlazorAssignment.Components.Pages;
+using System.Net.Security;
 
 namespace BlazorAssignment.Model
 {
@@ -6,7 +7,7 @@ namespace BlazorAssignment.Model
     {
         public static List<UserData> GetUserDatas(this IEnumerable<UserData> userDatas)
         {
-            return userDatas.GetFilteredUserData(0, userDatas.Count()).ToList();
+            return userDatas.ToList();
         }
         public static List<UserData> GetFilteredUserData(this IEnumerable<UserData> userDatas, int startIndex, int count)
         {
@@ -36,5 +37,7 @@ namespace BlazorAssignment.Model
         {
             return userDatas.OrderBy(x => x.ID).ToList();
         }
+
+        /*, int startIndex, int count*/
     }
 }
