@@ -5,7 +5,7 @@ namespace BlazorAssignment.Components.Pages
 {
     public partial class NewUser
     {
-        private User user = new User();
+        private UserData user = new UserData();
 
 
         private string _nameToDisplay;

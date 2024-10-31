@@ -1,18 +1,22 @@
 ﻿@page "/users"
-@attribute [StreamRendering]
+@rendermode InteractiveServer
 
 <PageTitle>Users</PageTitle>
 
-<h1>Users</h1>
+<h1>@Heading</h1>
 
-<p>This component demonstrates showing data.</p>
-
-@if (users == null)
+@if (_users == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
+    <button @onclick="DisplayAllUsers">Show All</button>
+    <button @onclick="DisplaySomeUsers">Show Some</button>
+
+    <button @onclick="OrderByName">Filter By Name</button>
+    <button @onclick="OrderByID">Filter By ID</button>
+
     <table class="table">
         <thead>
             <tr>
@@ -20,22 +24,30 @@ else
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
+
                 <th>Street</th>
                 <th>City</th>
                 <th>Zipcode</th>
+
                 <th>Company Name</th>
-                <th>Company Email</th>
                 <th>Company Catchphrase</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in users)
+            @foreach (var item in _users)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@item.ID.ToString()</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber.ToString()</td>
+
+                    <td>@item.Street</td>
+                    <td>@item.City</td>
+                    <td>@item.Zipcode.ToString()</td>
+
+                    <td>@item.CompanyName</td>
+                    <td>@item.CompanyCatchphrase</td>
                 </tr>
             }
         </tbody>

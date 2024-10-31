@@ -1,29 +1,52 @@
+using BlazorAssignment.Model;
+using Microsoft.AspNetCore.Components;
+
 namespace BlazorAssignment.Components.Pages
 {
     public partial class Users
     {
-        private UserList[]? users;
+        private List<UserData>? _users;
+
+        [Parameter]
+        public string Heading { get; set; }
+        [Parameter]
+        public int AmountOfUsers { get; set; }
+        [Parameter]
+        public IUserDataAccsess DataAccess {  get; set; }
 
         protected override async Task OnInitializedAsync()
         {
             // Simulate asynchronous loading to demonstrate streaming rendering
             await Task.Delay(500);
 
-            var startDate = DateOnly.FromDateTime(DateTime.Now);
-            var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-            users = Enumerable.Range(1, 5).Select(index => new UserList
+            Heading ??= "Users from UserDataAccess";
+            DataAccess ??= new UserDataAccess();
+
+            if (AmountOfUsers < 1)
             {
-                Date = startDate.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = summaries[Random.Shared.Next(summaries.Length)]
-            }).ToArray();
+                AmountOfUsers = 5;
+            }
+
+            DisplaySomeUsers();
+            
         }
-    }
-    public class UserList
-    {
-        public DateOnly Date { get; set; }
-        public int TemperatureC { get; set; }
-        public string? Summary { get; set; }
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        
+        private void DisplayAllUsers()
+        {
+            _users = DataAccess.UserDatas.GetUserDatas();
+        }
+        private void DisplaySomeUsers()
+        {
+            _users = DataAccess.UserDatas.GetFilteredUserData(0, AmountOfUsers);
+        }
+
+        private void OrderByName()
+        {
+            _users = DataAccess.UserDatas.GetUserDataOrderByName();
+        }
+        private void OrderByID()
+        {
+            _users = DataAccess.UserDatas.GetUserDataOrderByID();
+        }
     }
 }
