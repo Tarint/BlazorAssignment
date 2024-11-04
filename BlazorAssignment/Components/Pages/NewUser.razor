@@ -36,26 +36,26 @@
         <label>Home Adress</label><br />
 
         <label>Street<br />
-        <InputText @bind-Value="user.Street" placeholder="Street Name" />
+        <InputText @bind-Value="user.Adress.Street" placeholder="Street Name" />
         </label>
 
         <label>City<br />
-        <InputText @bind-Value="user.City" placeholder="City" />
+        <InputText @bind-Value="user.Adress.City" placeholder="City" />
         </label>
 
         <label>Zipcode <br />
-        <InputNumber @bind-Value="user.Zipcode"></InputNumber>
+        <InputNumber @bind-Value="user.Adress.Zipcode"></InputNumber>
         </label><br /><br />
 
 
         <label>Company</label><br />
 
         <label>Company Name<br />
-        <InputText @bind-Value="user.CompanyName" placeholder="Company Name" />
+        <InputText @bind-Value="user.Commpany.CompanyName" placeholder="Company Name" />
         </label>
 
         <label>Catchphrase<br />
-        <InputText @bind-Value="user.CompanyCatchphrase" placeholder="Catchphrase" />
+        <InputText @bind-Value="user.Commpany.CompanyCatchphrase" placeholder="Catchphrase" />
         </label><br /><br />
 
         <button type="submit">Submit</button>

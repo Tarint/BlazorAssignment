@@ -37,7 +37,5 @@ namespace BlazorAssignment.Model
         {
             return userDatas.OrderBy(x => x.ID).ToList();
         }
-
-        /*, int startIndex, int count*/
     }
 }

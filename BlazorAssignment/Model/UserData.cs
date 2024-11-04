@@ -4,21 +4,19 @@ namespace BlazorAssignment.Components.Pages
 {
     public class UserData
     {
-        public UserData(int iD, string name, string userName, string email, long phoneNumber, string street, string city, int zipcode, string companyName, string companyCatchphrase)
+        public UserData(int iD, string name, string userName, string email, long phoneNumber, Address address, Company company)
         {
-            ID = iD;
-            
+            ID = iD; 
+
+
             Name = name;
             UserName = userName;
             Email = email;
             PhoneNumber = phoneNumber;
 
-            Street = street;
-            City = city;
-            Zipcode = zipcode;
+            Adress = address;
 
-            CompanyName = companyName;
-            CompanyCatchphrase = companyCatchphrase;
+            Commpany = company;
         }
 
         public int ID { get; set; }
@@ -30,11 +28,8 @@ namespace BlazorAssignment.Components.Pages
         public string Email { get; set; }
         public long PhoneNumber {  get; set; }
 
-        public string Street { get; set; }
-        public string City { get; set; }
-        public int Zipcode { get; set; }
+        public Address Adress { get; set; }
 
-        public string CompanyName { get; set; }
-        public string CompanyCatchphrase { get; set; }
+        public Company Commpany { get; set; }
     }
 }

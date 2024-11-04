@@ -1,10 +1,12 @@
 ﻿namespace BlazorAssignment.Components.Pages
 {
-    public class Adress
+    public class Address
     {
-        public Adress()
+        public Address(string street, string city, int zipcode)
         {
-
+            Street = street;
+            City = city;
+            Zipcode = zipcode;
         }
         public string Street { get; set; }
         public string City { get; set; }
