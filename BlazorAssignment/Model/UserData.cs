@@ -8,7 +8,6 @@ namespace BlazorAssignment.Components.Pages
         {
             ID = iD; 
 
-
             Name = name;
             UserName = userName;
             Email = email;
