@@ -4,7 +4,7 @@ namespace BlazorAssignment.Components.Pages
 {
     public class UserData
     {
-        public UserData(int iD, string name, string userName, string email, long phoneNumber, Address address, Company company)
+        public UserData(int iD, string name, string userName, string email, string phoneNumber, Address address, Company company)
         {
             ID = iD; 
 
@@ -25,7 +25,10 @@ namespace BlazorAssignment.Components.Pages
         public string Name { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public long PhoneNumber {  get; set; }
+
+        [Required(ErrorMessage = "Your name is required")]
+        [StringLength(11, ErrorMessage = "To many characters")]
+        public string PhoneNumber {  get; set; }
 
         public Address Adress { get; set; }
 

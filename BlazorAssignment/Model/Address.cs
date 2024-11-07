@@ -1,8 +1,10 @@
-﻿namespace BlazorAssignment.Components.Pages
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BlazorAssignment.Components.Pages
 {
     public class Address
     {
-        public Address(string street, string city, int zipcode)
+        public Address(string street, string city, string zipcode)
         {
             Street = street;
             City = city;
@@ -10,6 +12,8 @@
         }
         public string Street { get; set; }
         public string City { get; set; }
-        public int Zipcode { get; set; }
+
+        [StringLength(5, ErrorMessage = "To many characters")]
+        public string Zipcode { get; set; }
     }
 }

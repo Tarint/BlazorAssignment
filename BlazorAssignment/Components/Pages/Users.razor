@@ -25,13 +25,13 @@ else
     <br />
     if (!longShort)
     {
-        <button @onclick="OrderByNameLongList">Sort long list By Name</button>
-        <button @onclick="OrderByIDLongList">Sort long list By ID</button>
+        <button @onclick="SortByNameLongList">Sort long list By Name</button>
+        <button @onclick="SortByIDLongList">Sort long list By ID</button>
     }
     else if (longShort)
     {
-        <button @onclick="OrderByNameShortList">Sort short list By Name</button>
-        <button @onclick="OrderByIDShortList">Sort short list By ID</button>
+        <button @onclick="SortByNameShortList">Sort short list By Name</button>
+        <button @onclick="SortByIDShortList">Sort short list By ID</button>
     }
 
     <table class="table">
@@ -57,11 +57,11 @@ else
                     <td>@item.ID.ToString()</td>
                     <td>@item.Name</td>
                     <td>@item.Email</td>
-                    <td>@item.PhoneNumber.ToString()</td>
+                    <td>@item.PhoneNumber</td>
 
                     <td>@item.Adress.Street</td>
                     <td>@item.Adress.City</td>
-                    <td>@item.Adress.Zipcode.ToString()</td>
+                    <td>@item.Adress.Zipcode</td>
 
                     <td>@item.Commpany.CompanyName</td>
                     <td>@item.Commpany.CompanyCatchphrase</td>

@@ -49,20 +49,20 @@ namespace BlazorAssignment.Components.Pages
             StateHasChanged();
         }
 
-        private void OrderByNameShortList()
+        private void SortByNameShortList()
         {
             _users = DataAccess.UserDatas.GetFilteredUserData(0, AmountOfUsers).GetUserDataOrderByName();
         }
-        private void OrderByIDShortList()
+        private void SortByIDShortList()
         {
             _users = DataAccess.UserDatas.GetFilteredUserData(0, AmountOfUsers).GetUserDataOrderByID();
         }
 
-        private void OrderByNameLongList()
+        private void SortByNameLongList()
         {
             _users = DataAccess.UserDatas.GetUserDataOrderByName();
         }
-        private void OrderByIDLongList()
+        private void SortByIDLongList()
         {
             _users = DataAccess.UserDatas.GetUserDataOrderByID();
         }

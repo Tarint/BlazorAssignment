@@ -29,11 +29,12 @@
         </label>
 
         <label>Phone Number <br />
-        <InputNumber @bind-Value="user.PhoneNumber"></InputNumber>
+        <InputText @bind-Value="user.PhoneNumber" placeholder="Phone Number"/>
+        <ValidationMessage For="@(() => user.PhoneNumber)" />
         </label><br /><br />
+         
 
-
-        <label>Home Adress</label><br />
+        <label><b>Home Adress</b></label><br />
 
         <label>Street<br />
         <InputText @bind-Value="user.Adress.Street" placeholder="Street Name" />
@@ -44,11 +45,12 @@
         </label>
 
         <label>Zipcode <br />
-        <InputNumber @bind-Value="user.Adress.Zipcode"></InputNumber>
+        <InputText @bind-Value="user.Adress.Zipcode" placeholder="Zipcode" />
+        <ValidationMessage For="@(() => user.Adress.Zipcode)" />
         </label><br /><br />
 
 
-        <label>Company</label><br />
+        <label><b>Company</b></label><br />
 
         <label>Company Name<br />
         <InputText @bind-Value="user.Commpany.CompanyName" placeholder="Company Name" />
